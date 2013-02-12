@@ -3,9 +3,12 @@ abstract: 'Path::Tiny types and coercions for Moose'
 author:
   - 'David Golden <dagolden@cpan.org>'
 build_requires:
+  ExtUtils::MakeMaker: 0
   File::Find: 0
+  File::Spec::Functions: 0
   File::Temp: 0.18
   File::pushd: 0
+  List::Util: 0
   Test::Fatal: 0
   Test::More: 0.96
 configure_requires:
@@ -28,9 +31,9 @@ no_index:
 provides:
   MooseX::Types::Path::Tiny:
     file: lib/MooseX/Types/Path/Tiny.pm
-    version: 0.001
+    version: 0.002
 requires:
-  Moose: 0
+  Moose: 2
   MooseX::Types: 0
   MooseX::Types::Moose: 0
   MooseX::Types::Stringlike: 0
@@ -42,4 +45,4 @@ resources:
   bugtracker: https://github.com/dagolden/moosex-types-path-tiny/issues
   homepage: https://metacpan.org/release/MooseX-Types-Path-Tiny
   repository: git://github.com/dagolden/moosex-types-path-tiny.git
-version: 0.001
+version: 0.002

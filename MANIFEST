@@ -10,6 +10,7 @@ dist.ini
 lib/MooseX/Types/Path/Tiny.pm
 perlcritic.rc
 t/00-compile.t
+t/00-report-prereqs.t
 t/basic.t
 t/error.t
 tidyall.ini

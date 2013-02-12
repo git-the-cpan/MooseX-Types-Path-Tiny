@@ -12,9 +12,12 @@ my %WriteMakefileArgs = (
   "ABSTRACT" => "Path::Tiny types and coercions for Moose",
   "AUTHOR" => "David Golden <dagolden\@cpan.org>",
   "BUILD_REQUIRES" => {
+    "ExtUtils::MakeMaker" => 0,
     "File::Find" => 0,
+    "File::Spec::Functions" => 0,
     "File::Temp" => "0.18",
     "File::pushd" => 0,
+    "List::Util" => 0,
     "Test::Fatal" => 0,
     "Test::More" => "0.96"
   },
@@ -26,7 +29,7 @@ my %WriteMakefileArgs = (
   "LICENSE" => "apache",
   "NAME" => "MooseX::Types::Path::Tiny",
   "PREREQ_PM" => {
-    "Moose" => 0,
+    "Moose" => 2,
     "MooseX::Types" => 0,
     "MooseX::Types::Moose" => 0,
     "MooseX::Types::Stringlike" => 0,
@@ -34,7 +37,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.001",
+  "VERSION" => "0.002",
   "test" => {
     "TESTS" => "t/*.t"
   }
