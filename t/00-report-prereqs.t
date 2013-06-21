@@ -21,12 +21,8 @@ my @modules = qw(
   MooseX::Types::Moose
   MooseX::Types::Stringlike
   Path::Tiny
-  Pod::Coverage::TrustPod
-  Test::CPAN::Meta
   Test::Fatal
   Test::More
-  Test::Pod
-  Test::Pod::Coverage
   perl
   strict
   warnings
@@ -38,6 +34,7 @@ my $cpan_meta = "CPAN::Meta";
 if ( -f "MYMETA.json" && eval "require $cpan_meta" ) { ## no critic
   if ( my $meta = eval { CPAN::Meta->load_file("MYMETA.json") } ) {
     my $prereqs = $meta->prereqs;
+    delete $prereqs->{develop};
     my %uniq = map {$_ => 1} map { keys %$_ } map { values %$_ } values %$prereqs;
     $uniq{$_} = 1 for @modules; # don't lose any static ones
     @modules = sort keys %uniq;

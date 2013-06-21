@@ -1,10 +1,9 @@
-use 5.010;
 use strict;
 use warnings;
 
 package MooseX::Types::Path::Tiny;
 # ABSTRACT: Path::Tiny types and coercions for Moose
-our $VERSION = '0.002'; # VERSION
+our $VERSION = '0.005'; # VERSION
 
 use Moose 2;
 use MooseX::Types::Stringlike qw/Stringable/;
@@ -58,13 +57,15 @@ __END__
 
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
 MooseX::Types::Path::Tiny - Path::Tiny types and coercions for Moose
 
 =head1 VERSION
 
-version 0.002
+version 0.005
 
 =head1 SYNOPSIS
 
@@ -179,7 +180,7 @@ L<Moose::Manual::Types>
 =head2 Bugs / Feature Requests
 
 Please report any bugs or feature requests through the issue tracker
-at L<https://github.com/dagolden/moosex-types-path-tiny/issues>.
+at L<https://github.com/karenetheridge/moosex-types-path-tiny/issues>.
 You will be notified automatically of any progress on your issue.
 
 =head2 Source Code
@@ -194,6 +195,20 @@ L<https://github.com/dagolden/moosex-types-path-tiny>
 =head1 AUTHOR
 
 David Golden <dagolden@cpan.org>
+
+=head1 CONTRIBUTORS
+
+=over 4
+
+=item *
+
+Karen Etheridge <ether@cpan.org>
+
+=item *
+
+Toby Inkster <mail@tobyinkster.co.uk>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 
