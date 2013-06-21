@@ -16,11 +16,13 @@ my @modules = qw(
   File::Temp
   File::pushd
   List::Util
+  Module::Build::Tiny
   Moose
   MooseX::Types
   MooseX::Types::Moose
   MooseX::Types::Stringlike
   Path::Tiny
+  Test::CheckDeps
   Test::Fatal
   Test::More
   perl

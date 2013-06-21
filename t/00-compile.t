@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More;
+use Test::More 0.94;
 
 
 
@@ -56,7 +56,7 @@ $plan ? (plan tests => $plan) : (plan skip_all => "no tests to run");
 
 {
     # fake home for cpan-testers
-     local $ENV{HOME} = tempdir( CLEANUP => 1 );
+    # no fake requested ## local $ENV{HOME} = tempdir( CLEANUP => 1 );
 
     like( qx{ $^X -Ilib -e "require $_; print '$_ ok'" }, qr/^\s*$_ ok/s, "$_ loaded ok" )
         for sort @modules;
@@ -70,5 +70,5 @@ $plan ? (plan tests => $plan) : (plan skip_all => "no tests to run");
             script_compiles( $file, "$script script compiles" );
         }
     }
-
+    BAIL_OUT("Compilation failures") if !Test::More->builder->is_passing;
 }

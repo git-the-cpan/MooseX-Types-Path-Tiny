@@ -170,12 +170,4 @@ for my $c (@cases) {
 }
 
 done_testing;
-#
-# This file is part of MooseX-Types-Path-Tiny
-#
-# This software is Copyright (c) 2013 by David Golden.
-#
-# This is free software, licensed under:
-#
-#   The Apache License, Version 2.0, January 2004
-#
+# COPYRIGHT

@@ -2,8 +2,16 @@ use strict;
 use warnings;
 
 package MooseX::Types::Path::Tiny;
+{
+  $MooseX::Types::Path::Tiny::VERSION = '0.006';
+}
+# git description: v0.005-3-g8aa0bc8
+
+BEGIN {
+  $MooseX::Types::Path::Tiny::AUTHORITY = 'cpan:ETHER';
+}
 # ABSTRACT: Path::Tiny types and coercions for Moose
-our $VERSION = '0.005'; # VERSION
+# VERSION
 
 use Moose 2;
 use MooseX::Types::Stringlike qw/Stringable/;
@@ -59,13 +67,15 @@ __END__
 
 =encoding utf-8
 
+=for :stopwords David Golden coercions SUBTYPES subtype subtypes AbsPath AbsFile AbsDir
+
 =head1 NAME
 
 MooseX::Types::Path::Tiny - Path::Tiny types and coercions for Moose
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 SYNOPSIS
 
@@ -171,44 +181,15 @@ L<Path::Tiny>
 
 L<Moose::Manual::Types>
 
+=item *
+
+L<Types::Path::Tiny>
+
 =back
-
-=for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders metacpan
-
-=head1 SUPPORT
-
-=head2 Bugs / Feature Requests
-
-Please report any bugs or feature requests through the issue tracker
-at L<https://github.com/karenetheridge/moosex-types-path-tiny/issues>.
-You will be notified automatically of any progress on your issue.
-
-=head2 Source Code
-
-This is open source software.  The code repository is available for
-public review and contribution under the terms of the license.
-
-L<https://github.com/dagolden/moosex-types-path-tiny>
-
-  git clone git://github.com/dagolden/moosex-types-path-tiny.git
 
 =head1 AUTHOR
 
 David Golden <dagolden@cpan.org>
-
-=head1 CONTRIBUTORS
-
-=over 4
-
-=item *
-
-Karen Etheridge <ether@cpan.org>
-
-=item *
-
-Toby Inkster <mail@tobyinkster.co.uk>
-
-=back
 
 =head1 COPYRIGHT AND LICENSE
 
