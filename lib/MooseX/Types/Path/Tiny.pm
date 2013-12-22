@@ -1,17 +1,15 @@
 use strict;
 use warnings;
-
 package MooseX::Types::Path::Tiny;
 {
-  $MooseX::Types::Path::Tiny::VERSION = '0.006';
+  $MooseX::Types::Path::Tiny::VERSION = '0.007';
 }
-# git description: v0.005-3-g8aa0bc8
+# git description: v0.006-8-g0efc97e
 
 BEGIN {
-  $MooseX::Types::Path::Tiny::AUTHORITY = 'cpan:ETHER';
+  $MooseX::Types::Path::Tiny::AUTHORITY = 'cpan:DAGOLDEN';
 }
 # ABSTRACT: Path::Tiny types and coercions for Moose
-# VERSION
 
 use Moose 2;
 use MooseX::Types::Stringlike qw/Stringable/;
@@ -58,16 +56,12 @@ for my $type ( AbsPath, AbsFile, AbsDir ) {
 
 1;
 
-
-# vim: ts=4 sts=4 sw=4 et:
-
-__END__
-
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
-=for :stopwords David Golden coercions SUBTYPES subtype subtypes AbsPath AbsFile AbsDir
+=for :stopwords David Golden Karen Etheridge Toby Inkster coercions SUBTYPES subtype
+subtypes AbsPath AbsFile AbsDir
 
 =head1 NAME
 
@@ -75,7 +69,7 @@ MooseX::Types::Path::Tiny - Path::Tiny types and coercions for Moose
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 SYNOPSIS
 
@@ -121,8 +115,6 @@ coercing to absolute paths
 =back
 
 It also can check to ensure that files or directories exist.
-
-=for Pod::Coverage method_names_here
 
 =head1 SUBTYPES
 
@@ -199,4 +191,23 @@ This is free software, licensed under:
 
   The Apache License, Version 2.0, January 2004
 
+=head1 CONTRIBUTORS
+
+=over 4
+
+=item *
+
+Karen Etheridge <ether@cpan.org>
+
+=item *
+
+Toby Inkster <mail@tobyinkster.co.uk>
+
+=back
+
 =cut
+
+__END__
+
+
+# vim: ts=4 sts=4 sw=4 et:
