@@ -4,8 +4,8 @@ package MooseX::Types::Path::Tiny;
 BEGIN {
   $MooseX::Types::Path::Tiny::AUTHORITY = 'cpan:ETHER';
 }
-# git description: v0.008-1-g2fd323e
-$MooseX::Types::Path::Tiny::VERSION = '0.009';
+# git description: v0.009-1-gb623db3
+$MooseX::Types::Path::Tiny::VERSION = '0.010';
 # ABSTRACT: Path::Tiny types and coercions for Moose
 
 use Moose 2;
@@ -18,7 +18,7 @@ use MooseX::Types -declare => [qw/
     Paths AbsPaths
 /];
 use Path::Tiny ();
-use if eval { MooseX::Types->VERSION(0.42) }, 'namespace::autoclean';
+use if MooseX::Types->VERSION >= 0.42, 'namespace::autoclean';
 
 #<<<
 subtype Path,    as 'Path::Tiny';
@@ -91,7 +91,7 @@ MooseX::Types::Path::Tiny - Path::Tiny types and coercions for Moose
 
 =head1 VERSION
 
-version 0.009
+version 0.010
 
 =head1 SYNOPSIS
 

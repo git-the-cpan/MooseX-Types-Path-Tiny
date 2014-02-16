@@ -94,7 +94,7 @@
    "provides" : {
       "MooseX::Types::Path::Tiny" : {
          "file" : "lib/MooseX/Types/Path/Tiny.pm",
-         "version" : "0.009"
+         "version" : "0.010"
       }
    },
    "release_status" : "stable",
@@ -112,7 +112,7 @@
       "x_IRC" : "irc://irc.perl.org/#moose",
       "x_MailingList" : "http://lists.perl.org/list/moose.html"
    },
-   "version" : "0.009",
+   "version" : "0.010",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.019008"

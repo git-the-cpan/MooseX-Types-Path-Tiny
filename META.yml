@@ -30,7 +30,7 @@ no_index:
 provides:
   MooseX::Types::Path::Tiny:
     file: lib/MooseX/Types/Path/Tiny.pm
-    version: '0.009'
+    version: '0.010'
 requires:
   Moose: '2'
   MooseX::Types: '0'
@@ -47,7 +47,7 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=MooseX-Types-Path-Tiny
   homepage: https://github.com/karenetheridge/MooseX-Types-Path-Tiny
   repository: https://github.com/karenetheridge/MooseX-Types-Path-Tiny.git
-version: '0.009'
+version: '0.010'
 x_Dist_Zilla:
   perl:
     version: '5.019008'
