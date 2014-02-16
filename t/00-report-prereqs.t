@@ -89,7 +89,7 @@ my $static_prereqs = do { my $x = {
                                       'MooseX::Types::Moose' => '0',
                                       'MooseX::Types::Stringlike' => '0',
                                       'Path::Tiny' => '0',
-                                      'namespace::autoclean' => '0',
+                                      'if' => '0',
                                       'perl' => '5.006',
                                       'strict' => '0',
                                       'warnings' => '0'
@@ -108,7 +108,6 @@ my $static_prereqs = do { my $x = {
                                    'List::Util' => '0',
                                    'Test::Fatal' => '0',
                                    'Test::More' => '0.96',
-                                   'if' => '0',
                                    'version' => '0'
                                  }
                  }

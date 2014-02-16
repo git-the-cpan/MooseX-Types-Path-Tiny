@@ -10,7 +10,6 @@ build_requires:
   List::Util: '0'
   Test::Fatal: '0'
   Test::More: '0.96'
-  if: '0'
   version: '0'
 configure_requires:
   ExtUtils::MakeMaker: '6.30'
@@ -31,14 +30,14 @@ no_index:
 provides:
   MooseX::Types::Path::Tiny:
     file: lib/MooseX/Types/Path/Tiny.pm
-    version: '0.008'
+    version: '0.009'
 requires:
   Moose: '2'
   MooseX::Types: '0'
   MooseX::Types::Moose: '0'
   MooseX::Types::Stringlike: '0'
   Path::Tiny: '0'
-  namespace::autoclean: '0'
+  if: '0'
   perl: '5.006'
   strict: '0'
   warnings: '0'
@@ -48,7 +47,7 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=MooseX-Types-Path-Tiny
   homepage: https://github.com/karenetheridge/MooseX-Types-Path-Tiny
   repository: https://github.com/karenetheridge/MooseX-Types-Path-Tiny.git
-version: '0.008'
+version: '0.009'
 x_Dist_Zilla:
   perl:
     version: '5.019008'

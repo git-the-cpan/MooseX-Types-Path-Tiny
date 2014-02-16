@@ -85,7 +85,7 @@ my %WriteMakefileArgs = (
     "MooseX::Types::Moose" => 0,
     "MooseX::Types::Stringlike" => 0,
     "Path::Tiny" => 0,
-    "namespace::autoclean" => 0,
+    "if" => 0,
     "strict" => 0,
     "warnings" => 0
   },
@@ -97,10 +97,9 @@ my %WriteMakefileArgs = (
     "List::Util" => 0,
     "Test::Fatal" => 0,
     "Test::More" => "0.96",
-    "if" => 0,
     "version" => 0
   },
-  "VERSION" => "0.008",
+  "VERSION" => "0.009",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -121,7 +120,6 @@ my %FallbackPrereqs = (
   "Test::Fatal" => 0,
   "Test::More" => "0.96",
   "if" => 0,
-  "namespace::autoclean" => 0,
   "strict" => 0,
   "version" => 0,
   "warnings" => 0
