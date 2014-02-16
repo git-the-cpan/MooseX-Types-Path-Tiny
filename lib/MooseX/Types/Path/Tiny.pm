@@ -1,21 +1,24 @@
 use strict;
 use warnings;
 package MooseX::Types::Path::Tiny;
-{
-  $MooseX::Types::Path::Tiny::VERSION = '0.007';
-}
-# git description: v0.006-8-g0efc97e
-
 BEGIN {
-  $MooseX::Types::Path::Tiny::AUTHORITY = 'cpan:DAGOLDEN';
+  $MooseX::Types::Path::Tiny::AUTHORITY = 'cpan:ETHER';
 }
+# git description: v0.007-6-g87c003b
+$MooseX::Types::Path::Tiny::VERSION = '0.008';
 # ABSTRACT: Path::Tiny types and coercions for Moose
 
 use Moose 2;
 use MooseX::Types::Stringlike qw/Stringable/;
 use MooseX::Types::Moose qw/Str ArrayRef/;
-use MooseX::Types -declare => [qw( Path AbsPath File AbsFile Dir AbsDir )];
+use MooseX::Types -declare => [qw/
+    Path AbsPath
+    File AbsFile
+    Dir AbsDir
+    Paths AbsPaths
+/];
 use Path::Tiny ();
+use namespace::autoclean;
 
 #<<<
 subtype Path,    as 'Path::Tiny';
@@ -26,6 +29,9 @@ subtype Dir,     as Path, where { $_->is_dir },  message { "Directory '$_' does 
 
 subtype AbsFile, as AbsPath, where { $_->is_file }, message { "File '$_' does not exist" };
 subtype AbsDir,  as AbsPath, where { $_->is_dir },  message { "Directory '$_' does not exist" };
+
+subtype Paths,   as ArrayRef[Path];
+subtype AbsPaths, as ArrayRef[AbsPath];
 #>>>
 
 for my $type ( 'Path::Tiny', Path, File, Dir ) {
@@ -46,6 +52,22 @@ for my $type ( AbsPath, AbsFile, AbsDir ) {
         from ArrayRef()   => via { Path::Tiny::path(@$_)->absolute },
     );
 }
+
+coerce(
+    Paths,
+    from Path()       => via { [ $_ ] },
+    from Str()        => via { [ Path::Tiny::path($_) ] },
+    from Stringable() => via { [ Path::Tiny::path($_) ] },
+    from ArrayRef()   => via { [ map { Path::Tiny::path($_) } @$_ ] },
+);
+
+coerce(
+    AbsPaths,
+    from AbsPath()    => via { [ $_ ] },
+    from Str()        => via { [ Path::Tiny::path($_)->absolute ] },
+    from Stringable() => via { [ Path::Tiny::path($_)->absolute ] },
+    from ArrayRef()   => via { [ map { Path::Tiny::path($_)->absolute } @$_ ] },
+);
 
 ### optionally add Getopt option type (adapted from MooseX::Types:Path::Class
 ##eval { require MooseX::Getopt; };
@@ -69,7 +91,7 @@ MooseX::Types::Path::Tiny - Path::Tiny types and coercions for Moose
 
 =head1 VERSION
 
-version 0.007
+version 0.008
 
 =head1 SYNOPSIS
 
@@ -92,6 +114,12 @@ version 0.007
     coerce => 1,
   );
 
+  has filenames => (
+    is => 'ro',
+    isa => Paths,
+    coerce => 1,
+  );
+
   ### usage in code
 
   Foo->new( filename => 'foo.txt' ); # coerced to Path::Tiny
@@ -99,7 +127,7 @@ version 0.007
 
 =head1 DESCRIPTION
 
-This module provides L<Path::Tiny> types for Moose.  It handles
+This module provides L<Path::Tiny> types for L<Moose>.  It handles
 two important types of coercion:
 
 =over 4
@@ -139,6 +167,11 @@ the file actually exists on the filesystem.
 These are just like C<Path> and C<AbsPath>, except they check C<-d> to ensure
 the directory actually exists on the filesystem.
 
+=head2 Paths, AbsPaths
+
+These are arrayrefs of C<Path> and C<AbsPath>, and include coercions from
+arrayrefs of strings.
+
 =head1 CAVEATS
 
 =head2 Path vs File vs Dir
@@ -150,13 +183,13 @@ what you want.
 
 =head2 Usage with File::Temp
 
-Be careful if you pass in a File::Temp object. Because the argument is
-stringified during coercion into a Path::Tiny object, no reference to the
-original File::Temp argument is held.  Be sure to hold an external reference to
+Be careful if you pass in a L<File::Temp> object. Because the argument is
+stringified during coercion into a L<Path::Tiny> object, no reference to the
+original L<File::Temp> argument is held.  Be sure to hold an external reference to
 it to avoid immediate cleanup of the temporary file or directory at the end of
 the enclosing scope.
 
-A better approach is to use Path::Tiny's own C<tempfile> or C<tempdir>
+A better approach is to use L<Path::Tiny>'s own C<tempfile> or C<tempdir>
 constructors, which hold the reference for you.
 
     Foo->new( filename => Path::Tiny->tempfile );
